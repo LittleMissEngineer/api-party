@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import { Route } from 'react-router-dom'
 
 import './Github.css'
 
@@ -26,7 +27,7 @@ return(
           src="http://www.aha.io/assets/github.7433692cabbfa132f34adb034e7909fa.png"
           alt="GitHub"
         />
-        <form onSubmite = {this.handleSubmit}>
+        <form onSubmit = {this.handleSubmit}>
           <div>
             <input type="text "
             value={this.state.username}
@@ -37,6 +38,8 @@ return(
             <button type="submit">Look up GitHub user</button>
           </div>
         </form>
+        <Route path="/github/:username" render={(props) => <h3>You searched for {props.match.params.username}.</h3>} />
+        <Route exact path="/github" render={() => <h3>Please enter a username to search on GitHub.</h3>} />
       </div>
 )
 }
