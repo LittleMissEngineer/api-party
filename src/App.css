@@ -2,6 +2,8 @@
 
 .App {
   text-align: center;
+  background: lightgray;
+  height: 1500px;
 }
 
 h1 {
@@ -16,8 +18,9 @@ h3 {
 
 .App-header {
   background-color: #222;
+  background: url(https://wallpapercave.com/wp/9yTuUIN.jpg);
   height: 150px;
-  padding: 20px;
+  padding: 30px;
   color: white;
 }
 
@@ -38,11 +41,11 @@ h3 {
 }
 
 .navLinks a.active {
-  color: #F79824;
+  color: rgb(215, 36, 247);
 }
 
 .navLinks a.active:hover {
-  color: #FDCA40;
+  color: rgb(231, 64, 253);
 }
 
 .navLinks a:hover {

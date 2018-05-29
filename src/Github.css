@@ -24,12 +24,12 @@
   .Github button {
     color: white;
     margin-top: 10px;
-    width: 80%;
+    width: 40%;
     padding: 10px;
     font-size: 24px;
-    border-radius: 5px;
-    border: 1px solid #01638f;
+    border-radius: 50%;
+    border: 1px solid #43018f;
     margin-bottom: 50px;
-    background-color: #0184be;
+    background-color: #4301be83;
     font-family: "Gentium Book Basic", serif;
   }
