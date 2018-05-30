@@ -24,7 +24,7 @@ class RoverInfo extends Component {
   }
 
   fetchRoverData(props) {
-    fetch(`https://api.nasa.gov/mars-photos/api/v1/rovers/${props.match.params.rover}/photos?earth_date=${photoDates[props.match.params.rover]}&camera=fhaz&api_key=DEMO_KEY`)
+    fetch(`http://api.nasa.gov/mars-photos/api/v1/rovers/${props.match.params.rover}/photos?earth_date=${photoDates[props.match.params.rover]}&camera=fhaz&api_key=DEMO_KEY`)
       .then(res => res.json())
       .then(data => {
         const rover = {
