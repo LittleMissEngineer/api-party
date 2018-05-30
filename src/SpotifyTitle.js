@@ -12,12 +12,12 @@ constructor(props){
 componentWillReceiveProps(nextProps) {
     const locationChanged = nextProps.location !== this.props.location
     if (locationChanged) {
-      this.fetchUserData(nextProps)
+      this.fetchSongData(nextProps)
     }
   }
 
 fetchSongData = (props) =>{
-    fetch(`https://api.spotify.com/v1/v1/tracks/{id}${props.match.params.songname}`)
+    fetch(`https://api.spotify.com/v1/tracks/${props.match.params.title}`)
 .then(call => call.json())
 .then(song => this.setState({ song }))
 .catch((() => console.log('Oh boy!')))
