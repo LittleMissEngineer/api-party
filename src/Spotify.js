@@ -1,39 +1,55 @@
 import React, { Component } from 'react'
+import { Route } from 'react-router-dom'
 
-class SpotifySong extends Component{
-constructor(props){
-    super(props)
 
-    this.state = {
-        song: {},
-    }
-    this.fetchSongData(this.props)
+import './Spotify.css'
+import SpotifyTitle from './SpotifyTitle'
+
+class Spotify extends Component {
+state = {
+title: ' ',
 }
-componentWillReceiveProps(nextProps) {
-    const locationChanged = nextProps.location !== this.props.location
-    if (locationChanged) {
-      this.fetchUserData(nextProps)
-    }
-  }
 
-fetchSongData = (props) =>{
-    fetch(`https://api.spotify.com/v1/v1/tracks/{id}${props.match.params.songname}`)
-.then(call => call.json())
-.then(song => this.setState({ song }))
-.catch((() => console.log('Oh boy!')))
+handleChange = (ev) => {
+this.setState({title: ev.target.value})
+
+}
+
+handleSubmit = (ev) => {
+ev.preventDefault()
+this.props.history.push(`/spotify/${this.state.title}`)   
+this.setState({title: ''})
 }
 
 render(){
-const {song} = this.state
 return (
-<div className = "SpotifySong">
-<h2>title: {song.name} </h2>
-</div>
+<div className = "Spotify">
+<img className = "logo"
+src="https://upload.wikimedia.org/wikipedia/commons/8/8e/Spotify_logo_vertical_white.jpg"
+alt="Spotify"
+/>
+
+<form onSubmit={this.handleSubmit}>
+<div>
+    <input type ="text"
+        value={this.state.title}
+        onChange={this.handleChange}
+        />
+        </div>
+        <div>
+              <button type="submit">Look up song</button>
+            </div>
+          </form>
+          <Route path="/spotify/:title" component={SpotifyTitle} />
+          <Route exact path="/spotify" render={() => <h3>Please enter a song to search on Spotify.</h3>} />
+        </div>
+
 )
+
 }
+
+
 }
 
 
-
-
-export default SpotifySong
+export default Spotify
