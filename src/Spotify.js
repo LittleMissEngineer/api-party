@@ -25,7 +25,7 @@ render(){
 return (
 <div className = "Spotify">
 <img className = "logo"
-src="https://upload.wikimedia.org/wikipedia/commons/8/8e/Spotify_logo_vertical_white.jpg"
+src="http://andyroid.vonetize.com.edgesuite.net/website10/wp-content/uploads/2015/07/Spotify-icon.png"
 alt="Spotify"
 />
 
